@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://drd3bjutei1yv"]
+
+[ext_resource type="Script" path="res://Scripts/Background.gd" id="1_a54s0"]
+[ext_resource type="PackedScene" uid="uid://ybj5a3hpqqql" path="res://Scenes/paddle.tscn" id="2_hsvsr"]
+[ext_resource type="PackedScene" uid="uid://b4vamd2ir5pd0" path="res://Scenes/ball.tscn" id="3_gus57"]
+[ext_resource type="Script" path="res://Scripts/ball.gd" id="4_o5ek5"]
+[ext_resource type="Script" path="res://Scripts/SideWall.gd" id="5_x52vx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tktm7"]
+size = Vector2(8, 272)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tghrq"]
+size = Vector2(477, 10)
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("1_a54s0")
+
+[node name="Paddle" parent="." instance=ExtResource("2_hsvsr")]
+position = Vector2(256, 248)
+
+[node name="Ball" parent="." instance=ExtResource("3_gus57")]
+scale = Vector2(1, 1)
+script = ExtResource("4_o5ek5")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="LeftWall" type="Area2D" parent="Walls"]
+script = ExtResource("5_x52vx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
+position = Vector2(-4, 136)
+shape = SubResource("RectangleShape2D_tktm7")
+
+[node name="RightWall" type="Area2D" parent="Walls"]
+position = Vector2(488, 0)
+script = ExtResource("5_x52vx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
+position = Vector2(-4, 136)
+shape = SubResource("RectangleShape2D_tktm7")
+
+[node name="TopWall" type="Area2D" parent="Walls"]
+position = Vector2(464, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/TopWall"]
+position = Vector2(-222.5, -3)
+shape = SubResource("RectangleShape2D_tghrq")
+
+[connection signal="body_entered" from="Walls/LeftWall" to="Ball" method="_on_side_wall_collision"]
+[connection signal="body_entered" from="Walls/RightWall" to="Ball" method="_on_side_wall_collision"]
+[connection signal="body_entered" from="Walls/TopWall" to="Ball" method="_on_top_wall_collision"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfo62qwi83h7v"]
+
+[ext_resource type="Shader" path="res://Shaders/block.gdshader" id="1_ynlwv"]
+[ext_resource type="Texture2D" uid="uid://140ccegvkr32" path="res://Images/brick.png" id="2_07a8o"]
+[ext_resource type="Script" path="res://Scripts/brick.gd" id="3_laelx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cihcj"]
+shader = ExtResource("1_ynlwv")
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmr7o"]
+size = Vector2(32, 16)
+
+[node name="Brick" type="Sprite2D"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_cihcj")
+position = Vector2(320, 128)
+texture = ExtResource("2_07a8o")
+script = ExtResource("3_laelx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_pmr7o")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_ball_collision"]

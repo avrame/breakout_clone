@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cjfvx0bheh0ov"]
+
+[ext_resource type="Shader" uid="uid://b5wrcgdisuddd" path="res://Shaders/block.tres" id="1_pfx1n"]
+
+[resource]
+shader = ExtResource("1_pfx1n")
+shader_parameter/overlay_color = Vector4(0.7, 0.2, 0.85, 2.08165e-12)
