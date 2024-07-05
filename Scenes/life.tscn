@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvn26ili52dox"]
+
+[ext_resource type="Texture2D" uid="uid://by8yicfqtij74" path="res://Images/ball.png" id="1_ehtq8"]
+
+[node name="Life" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ehtq8")

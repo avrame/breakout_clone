@@ -5,6 +5,7 @@ const PADDLE_MARGIN = 2
 
 var touching_left_wall = false
 var touching_right_wall = false
+var freeze_paddle = false
 
 @onready var sprite = $Sprite
 var paddle_width
@@ -23,8 +24,16 @@ func _physics_process(delta):
 	var move_amount = Input.get_axis("slide-left", "slide-right")
 	var stop_move_left = move_amount < 0 and position.x - paddle_width / 2 <= PADDLE_MARGIN
 	var stop_move_right = move_amount > 0 and position.x + paddle_width / 2 >= screen_width - PADDLE_MARGIN
-	if not stop_move_left and not stop_move_right:
+	if not freeze_paddle and not stop_move_left and not stop_move_right:
 		move_local_x(move_amount * delta * PADDLE_SPEED)
 
 func _on_ball_entered(ball):
 	ball._bounce_off_paddle(self)
+
+
+func _on_lives_game_over():
+	freeze_paddle = true
+
+
+func _on_level_completed():
+	freeze_paddle = true

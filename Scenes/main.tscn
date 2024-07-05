@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://drd3bjutei1yv"]
+[gd_scene load_steps=14 format=3 uid="uid://drd3bjutei1yv"]
 
 [ext_resource type="Script" path="res://Scripts/Background.gd" id="1_a54s0"]
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_wybct"]
 [ext_resource type="PackedScene" uid="uid://ybj5a3hpqqql" path="res://Scenes/paddle.tscn" id="2_hsvsr"]
 [ext_resource type="PackedScene" uid="uid://b4vamd2ir5pd0" path="res://Scenes/ball.tscn" id="3_gus57"]
 [ext_resource type="Script" path="res://Scripts/ball.gd" id="4_o5ek5"]
-[ext_resource type="Script" path="res://Scripts/SideWall.gd" id="5_x52vx"]
+[ext_resource type="Script" path="res://Scripts/Lives.gd" id="5_flcf6"]
+[ext_resource type="Script" path="res://Scripts/GameOver.gd" id="6_7a57c"]
+[ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="8_vgamm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tktm7"]
 size = Vector2(8, 272)
@@ -12,22 +15,31 @@ size = Vector2(8, 272)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tghrq"]
 size = Vector2(477, 10)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3odru"]
+size = Vector2(496, 20)
+
+[sub_resource type="SystemFont" id="SystemFont_etpwb"]
+
+[sub_resource type="Theme" id="Theme_iymnw"]
+default_font = SubResource("SystemFont_etpwb")
+
 [node name="Main" type="Node2D"]
+script = ExtResource("1_wybct")
 
 [node name="Background" type="Node2D" parent="."]
 script = ExtResource("1_a54s0")
 
 [node name="Paddle" parent="." instance=ExtResource("2_hsvsr")]
-position = Vector2(256, 248)
+position = Vector2(240, 248)
 
 [node name="Ball" parent="." instance=ExtResource("3_gus57")]
+position = Vector2(240, 208)
 scale = Vector2(1, 1)
 script = ExtResource("4_o5ek5")
 
 [node name="Walls" type="Node2D" parent="."]
 
 [node name="LeftWall" type="Area2D" parent="Walls"]
-script = ExtResource("5_x52vx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
 position = Vector2(-4, 136)
@@ -35,7 +47,6 @@ shape = SubResource("RectangleShape2D_tktm7")
 
 [node name="RightWall" type="Area2D" parent="Walls"]
 position = Vector2(488, 0)
-script = ExtResource("5_x52vx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
 position = Vector2(-4, 136)
@@ -48,6 +59,77 @@ position = Vector2(464, 0)
 position = Vector2(-222.5, -3)
 shape = SubResource("RectangleShape2D_tghrq")
 
+[node name="Ground" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(240, 280)
+shape = SubResource("RectangleShape2D_3odru")
+
+[node name="Lives" type="Node2D" parent="."]
+position = Vector2(8, 8)
+script = ExtResource("5_flcf6")
+
+[node name="GameOver" type="Node2D" parent="."]
+visible = false
+script = ExtResource("6_7a57c")
+
+[node name="Panel" type="Panel" parent="GameOver"]
+offset_left = 176.0
+offset_top = 88.0
+offset_right = 304.0
+offset_bottom = 144.0
+
+[node name="Label" type="Label" parent="GameOver/Panel"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 23.0
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="GameOver/Panel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 28.0
+offset_right = 88.0
+offset_bottom = 48.0
+theme = SubResource("Theme_iymnw")
+theme_override_font_sizes/font_size = 8
+text = "Try Again"
+
+[node name="NextLevel" type="Node2D" parent="."]
+visible = false
+script = ExtResource("8_vgamm")
+
+[node name="Panel" type="Panel" parent="NextLevel"]
+offset_left = 172.0
+offset_top = 88.0
+offset_right = 308.0
+offset_bottom = 144.0
+
+[node name="Label" type="Label" parent="NextLevel/Panel"]
+layout_mode = 0
+offset_right = 135.0
+offset_bottom = 23.0
+text = "Level Complete!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="NextLevel/Panel"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 28.0
+offset_right = 104.0
+offset_bottom = 48.0
+theme = SubResource("Theme_iymnw")
+theme_override_font_sizes/font_size = 8
+text = "Start Next Level"
+
 [connection signal="body_entered" from="Walls/LeftWall" to="Ball" method="_on_side_wall_collision"]
 [connection signal="body_entered" from="Walls/RightWall" to="Ball" method="_on_side_wall_collision"]
 [connection signal="body_entered" from="Walls/TopWall" to="Ball" method="_on_top_wall_collision"]
+[connection signal="body_entered" from="Ground" to="Ball" method="_on_ground_body_entered"]
+[connection signal="body_entered" from="Ground" to="Lives" method="_on_ground_body_entered"]
+[connection signal="game_over" from="Lives" to="Paddle" method="_on_lives_game_over"]
+[connection signal="game_over" from="Lives" to="Ball" method="_on_game_over"]
+[connection signal="game_over" from="Lives" to="GameOver" method="_on_game_over"]
+[connection signal="pressed" from="GameOver/Panel/Button" to="." method="_on_restart_game"]
+[connection signal="pressed" from="GameOver/Panel/Button" to="GameOver" method="_on_restart_game_pressed"]

@@ -1,211 +1,187 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbrciwpjmmbs1"]
+[gd_scene load_steps=4 format=3 uid="uid://bbrciwpjmmbs1"]
 
 [ext_resource type="PackedScene" uid="uid://drd3bjutei1yv" path="res://Scenes/main.tscn" id="1_xdnbv"]
+[ext_resource type="Script" path="res://Scripts/Bricks.gd" id="2_0105n"]
 [ext_resource type="PackedScene" uid="uid://bfo62qwi83h7v" path="res://Scenes/brick.tscn" id="2_jhgln"]
-[ext_resource type="Material" uid="uid://rh6ygqi5ues7" path="res://Materials/red-overlay.tres" id="3_v2w7c"]
-[ext_resource type="Material" uid="uid://b0o1jv8ynbd8b" path="res://Materials/light-blue-overlay.tres" id="4_0k33g"]
-[ext_resource type="Shader" uid="uid://b5wrcgdisuddd" path="res://Shaders/block.tres" id="5_opyuv"]
-[ext_resource type="Material" uid="uid://cu5wkupqcum87" path="res://Materials/orange-overlay.tres" id="6_oeadx"]
-[ext_resource type="Material" uid="uid://b103ss8fjwtyr" path="res://Materials/green-overlay.tres" id="7_6p21j"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1gvx"]
-shader = ExtResource("5_opyuv")
-shader_parameter/overlay_color = Vector4(0.7, 0.2, 0.85, 2.08165e-12)
 
 [node name="Level-1" instance=ExtResource("1_xdnbv")]
 
 [node name="Bricks" type="Node2D" parent="." index="1"]
+script = ExtResource("2_0105n")
 
 [node name="Brick" parent="Bricks" index="0" instance=ExtResource("2_jhgln")]
-material = ExtResource("3_v2w7c")
+material = null
 position = Vector2(240, 89)
 
 [node name="Brick2" parent="Bricks" index="1" instance=ExtResource("2_jhgln")]
-material = ExtResource("3_v2w7c")
+material = null
 position = Vector2(272, 89)
 
 [node name="Brick3" parent="Bricks" index="2" instance=ExtResource("2_jhgln")]
-material = ExtResource("3_v2w7c")
+material = null
 position = Vector2(208, 89)
 
 [node name="Brick4" parent="Bricks" index="3" instance=ExtResource("2_jhgln")]
-material = ExtResource("3_v2w7c")
-position = Vector2(176, 89)
-
-[node name="Brick5" parent="Bricks" index="4" instance=ExtResource("2_jhgln")]
-material = ExtResource("4_0k33g")
-position = Vector2(192, 73)
-
-[node name="Brick6" parent="Bricks" index="5" instance=ExtResource("2_jhgln")]
-material = ExtResource("4_0k33g")
-position = Vector2(224, 73)
-
-[node name="Brick7" parent="Bricks" index="6" instance=ExtResource("2_jhgln")]
-material = ExtResource("4_0k33g")
-position = Vector2(256, 73)
-
-[node name="Brick8" parent="Bricks" index="7" instance=ExtResource("2_jhgln")]
-material = ExtResource("4_0k33g")
-position = Vector2(288, 73)
-
-[node name="Brick9" parent="Bricks" index="8" instance=ExtResource("2_jhgln")]
-material = ExtResource("3_v2w7c")
-position = Vector2(304, 89)
-
-[node name="Brick10" parent="Bricks" index="9" instance=ExtResource("2_jhgln")]
-material = ExtResource("4_0k33g")
-position = Vector2(320, 73)
-
-[node name="Brick11" parent="Bricks" index="10" instance=ExtResource("2_jhgln")]
-material = ExtResource("4_0k33g")
-position = Vector2(160, 73)
-
-[node name="Brick12" parent="Bricks" index="11" instance=ExtResource("2_jhgln")]
-material = SubResource("ShaderMaterial_g1gvx")
-position = Vector2(176, 57)
-
-[node name="Brick17" parent="Bricks" index="12" instance=ExtResource("2_jhgln")]
-material = ExtResource("3_v2w7c")
-position = Vector2(144, 89)
-
-[node name="Brick18" parent="Bricks" index="13" instance=ExtResource("2_jhgln")]
-material = ExtResource("4_0k33g")
-position = Vector2(128, 73)
-
-[node name="Brick19" parent="Bricks" index="14" instance=ExtResource("2_jhgln")]
-material = SubResource("ShaderMaterial_g1gvx")
-position = Vector2(144, 57)
-
-[node name="Brick26" parent="Bricks" index="15" instance=ExtResource("2_jhgln")]
-material = ExtResource("3_v2w7c")
-position = Vector2(112, 89)
-
-[node name="Brick27" parent="Bricks" index="16" instance=ExtResource("2_jhgln")]
-material = ExtResource("4_0k33g")
-position = Vector2(96, 73)
-
-[node name="Brick28" parent="Bricks" index="17" instance=ExtResource("2_jhgln")]
-material = SubResource("ShaderMaterial_g1gvx")
-position = Vector2(112, 57)
-
-[node name="Brick13" parent="Bricks" index="18" instance=ExtResource("2_jhgln")]
-material = SubResource("ShaderMaterial_g1gvx")
-position = Vector2(208, 57)
-
-[node name="Brick14" parent="Bricks" index="19" instance=ExtResource("2_jhgln")]
-material = SubResource("ShaderMaterial_g1gvx")
-position = Vector2(240, 57)
-
-[node name="Brick15" parent="Bricks" index="20" instance=ExtResource("2_jhgln")]
-material = SubResource("ShaderMaterial_g1gvx")
-position = Vector2(272, 57)
-
-[node name="Brick16" parent="Bricks" index="21" instance=ExtResource("2_jhgln")]
-material = SubResource("ShaderMaterial_g1gvx")
-position = Vector2(304, 57)
-
-[node name="Brick20" parent="Bricks" index="22" instance=ExtResource("2_jhgln")]
-material = ExtResource("3_v2w7c")
+material = null
 position = Vector2(336, 89)
 
-[node name="Brick21" parent="Bricks" index="23" instance=ExtResource("2_jhgln")]
-material = ExtResource("4_0k33g")
-position = Vector2(352, 73)
-
-[node name="Brick22" parent="Bricks" index="24" instance=ExtResource("2_jhgln")]
-material = SubResource("ShaderMaterial_g1gvx")
-position = Vector2(336, 57)
-
-[node name="Brick23" parent="Bricks" index="25" instance=ExtResource("2_jhgln")]
-material = ExtResource("3_v2w7c")
+[node name="Brick5" parent="Bricks" index="4" instance=ExtResource("2_jhgln")]
+material = null
 position = Vector2(368, 89)
 
-[node name="Brick24" parent="Bricks" index="26" instance=ExtResource("2_jhgln")]
-material = ExtResource("4_0k33g")
+[node name="Brick8" parent="Bricks" index="5" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(304, 89)
+
+[node name="Brick9" parent="Bricks" index="6" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(144, 89)
+
+[node name="Brick10" parent="Bricks" index="7" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(176, 89)
+
+[node name="Brick11" parent="Bricks" index="8" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(112, 89)
+
+[node name="Brick6" parent="Bricks" index="9" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(224, 73)
+max_hitpoints = 2
+
+[node name="Brick7" parent="Bricks" index="10" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(256, 73)
+max_hitpoints = 2
+
+[node name="Brick12" parent="Bricks" index="11" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(160, 73)
+max_hitpoints = 2
+
+[node name="Brick13" parent="Bricks" index="12" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(192, 73)
+max_hitpoints = 2
+
+[node name="Brick14" parent="Bricks" index="13" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(96, 73)
+max_hitpoints = 2
+
+[node name="Brick15" parent="Bricks" index="14" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(128, 73)
+max_hitpoints = 2
+
+[node name="Brick16" parent="Bricks" index="15" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(288, 73)
+max_hitpoints = 2
+
+[node name="Brick17" parent="Bricks" index="16" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(320, 73)
+max_hitpoints = 2
+
+[node name="Brick18" parent="Bricks" index="17" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(352, 73)
+max_hitpoints = 2
+
+[node name="Brick19" parent="Bricks" index="18" instance=ExtResource("2_jhgln")]
+material = null
 position = Vector2(384, 73)
+max_hitpoints = 2
 
-[node name="Brick29" parent="Bricks" index="27" instance=ExtResource("2_jhgln")]
-material = ExtResource("6_oeadx")
-position = Vector2(192, 41)
+[node name="Brick20" parent="Bricks" index="19" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(240, 57)
 
-[node name="Brick30" parent="Bricks" index="28" instance=ExtResource("2_jhgln")]
-material = ExtResource("6_oeadx")
-position = Vector2(224, 41)
+[node name="Brick21" parent="Bricks" index="20" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(272, 57)
 
-[node name="Brick31" parent="Bricks" index="29" instance=ExtResource("2_jhgln")]
-material = ExtResource("6_oeadx")
-position = Vector2(256, 41)
+[node name="Brick22" parent="Bricks" index="21" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(208, 57)
 
-[node name="Brick32" parent="Bricks" index="30" instance=ExtResource("2_jhgln")]
-material = ExtResource("6_oeadx")
-position = Vector2(288, 41)
+[node name="Brick23" parent="Bricks" index="22" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(336, 57)
 
-[node name="Brick33" parent="Bricks" index="31" instance=ExtResource("2_jhgln")]
-material = ExtResource("6_oeadx")
-position = Vector2(320, 41)
-
-[node name="Brick34" parent="Bricks" index="32" instance=ExtResource("2_jhgln")]
-material = ExtResource("6_oeadx")
-position = Vector2(160, 41)
-
-[node name="Brick35" parent="Bricks" index="33" instance=ExtResource("2_jhgln")]
-material = ExtResource("6_oeadx")
-position = Vector2(128, 41)
-
-[node name="Brick36" parent="Bricks" index="34" instance=ExtResource("2_jhgln")]
-material = ExtResource("6_oeadx")
-position = Vector2(96, 41)
-
-[node name="Brick37" parent="Bricks" index="35" instance=ExtResource("2_jhgln")]
-material = ExtResource("6_oeadx")
-position = Vector2(352, 41)
-
-[node name="Brick38" parent="Bricks" index="36" instance=ExtResource("2_jhgln")]
-material = ExtResource("6_oeadx")
-position = Vector2(384, 41)
-
-[node name="Brick25" parent="Bricks" index="37" instance=ExtResource("2_jhgln")]
-material = SubResource("ShaderMaterial_g1gvx")
+[node name="Brick24" parent="Bricks" index="23" instance=ExtResource("2_jhgln")]
+material = null
 position = Vector2(368, 57)
 
-[node name="Brick39" parent="Bricks" index="38" instance=ExtResource("2_jhgln")]
-material = ExtResource("7_6p21j")
-position = Vector2(176, 25)
+[node name="Brick25" parent="Bricks" index="24" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(304, 57)
 
-[node name="Brick40" parent="Bricks" index="39" instance=ExtResource("2_jhgln")]
-material = ExtResource("7_6p21j")
-position = Vector2(144, 25)
+[node name="Brick26" parent="Bricks" index="25" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(144, 57)
 
-[node name="Brick41" parent="Bricks" index="40" instance=ExtResource("2_jhgln")]
-material = ExtResource("7_6p21j")
-position = Vector2(112, 25)
+[node name="Brick27" parent="Bricks" index="26" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(176, 57)
 
-[node name="Brick42" parent="Bricks" index="41" instance=ExtResource("2_jhgln")]
-material = ExtResource("7_6p21j")
-position = Vector2(208, 25)
+[node name="Brick28" parent="Bricks" index="27" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(112, 57)
 
-[node name="Brick43" parent="Bricks" index="42" instance=ExtResource("2_jhgln")]
-material = ExtResource("7_6p21j")
-position = Vector2(240, 25)
+[node name="Brick29" parent="Bricks" index="28" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(224, 41)
+max_hitpoints = 3
 
-[node name="Brick44" parent="Bricks" index="43" instance=ExtResource("2_jhgln")]
-material = ExtResource("7_6p21j")
-position = Vector2(272, 25)
+[node name="Brick30" parent="Bricks" index="29" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(256, 41)
+max_hitpoints = 3
 
-[node name="Brick45" parent="Bricks" index="44" instance=ExtResource("2_jhgln")]
-material = ExtResource("7_6p21j")
-position = Vector2(304, 25)
+[node name="Brick31" parent="Bricks" index="30" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(160, 41)
+max_hitpoints = 3
 
-[node name="Brick46" parent="Bricks" index="45" instance=ExtResource("2_jhgln")]
-material = ExtResource("7_6p21j")
-position = Vector2(336, 25)
+[node name="Brick32" parent="Bricks" index="31" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(192, 41)
+max_hitpoints = 3
 
-[node name="Brick47" parent="Bricks" index="46" instance=ExtResource("2_jhgln")]
-material = ExtResource("7_6p21j")
-position = Vector2(368, 25)
+[node name="Brick33" parent="Bricks" index="32" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(96, 41)
+max_hitpoints = 3
 
-[node name="Paddle" parent="." index="2"]
-position = Vector2(240, 248)
+[node name="Brick34" parent="Bricks" index="33" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(128, 41)
+max_hitpoints = 3
 
-[node name="Ball" parent="." index="3"]
-position = Vector2(240, 208)
+[node name="Brick35" parent="Bricks" index="34" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(288, 41)
+max_hitpoints = 3
+
+[node name="Brick36" parent="Bricks" index="35" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(320, 41)
+max_hitpoints = 3
+
+[node name="Brick37" parent="Bricks" index="36" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(352, 41)
+max_hitpoints = 3
+
+[node name="Brick38" parent="Bricks" index="37" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(384, 41)
+max_hitpoints = 3
+
+[connection signal="level_completed" from="Bricks" to="Paddle" method="_on_level_completed"]
+[connection signal="level_completed" from="Bricks" to="Ball" method="_on_level_completed"]
+[connection signal="level_completed" from="Bricks" to="NextLevel" method="_on_level_completed"]
+[connection signal="pressed" from="NextLevel/Panel/Button" to="NextLevel" method="_on_next_level_button_pressed"]
