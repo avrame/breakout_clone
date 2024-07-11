@@ -17,12 +17,9 @@ func _process(_delta):
 func _set_material():
 	material = bricks_container._get_material(hitpoints)
 
-func _on_ball_collision(ball):
-	ball._on_brick_collision(self)
+func _on_ball_collision():
 	audio.play()
-	print(hitpoints)
 	hitpoints -= 1
-	print(hitpoints)
 	if hitpoints > 0:
 		_set_material()
 

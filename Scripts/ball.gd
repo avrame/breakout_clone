@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-const INITIAL_BALL_SPEED = -125
+const INITIAL_BALL_SPEED = -150
+const MIN_BALL_SPEED = 50
+const MAX_BALL_SPEED = 300
 
 @onready var sprite = $Sprite2D
 var brick_width
@@ -20,36 +22,28 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("fire"):
 		if not game_in_play and not game_over:
 			_start_moving()
+			
+	velocity.limit_length(MAX_BALL_SPEED)
+	if velocity.length() < MIN_BALL_SPEED:
+		velocity = velocity.normalized() * MIN_BALL_SPEED
 		
-	move_and_collide(velocity * delta)
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info:
+		collision_info.get_collider().emit_signal("ball_hit")
+		velocity = velocity.bounce(collision_info.get_normal())
 		
 func _start_moving():
-	velocity.y = INITIAL_BALL_SPEED
+	var angle = randf_range(.75 * PI, .25 * PI)
+	velocity = Vector2.RIGHT.rotated(angle) * INITIAL_BALL_SPEED
 	game_in_play = true
-	
+
+
 func _bounce_off_paddle(paddle):
 	var relative_position = position.x - paddle.position.x
-	var speed = velocity.length()
 	velocity.y = -velocity.y
-	velocity.x = relative_position * 10
+	velocity.x = relative_position * 8
 	velocity.normalized()
 
-func _on_side_wall_collision(_body):
-	velocity.x = -velocity.x
-
-func _on_top_wall_collision(_body):
-	velocity.y = -velocity.y
-	
-func _on_brick_collision(brick):
-	if position.x >= brick.position.x + brick_width / 2:
-		velocity.x = abs(velocity.x)
-	elif position.x <= brick.position.x - brick_width / 2:
-		velocity.x = -abs(velocity.x)
-	
-	if position.y >= brick.position.y + brick_height / 2:
-		velocity.y = abs(velocity.y)
-	elif position.y <= brick.position.y - brick_height / 2:
-		velocity.y = -abs(velocity.y)
 
 func _on_ground_body_entered(body):
 	velocity = Vector2.ZERO

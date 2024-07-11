@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://ybj5a3hpqqql" path="res://Scenes/paddle.tscn" id="2_hsvsr"]
 [ext_resource type="PackedScene" uid="uid://b4vamd2ir5pd0" path="res://Scenes/ball.tscn" id="3_gus57"]
 [ext_resource type="Script" path="res://Scripts/ball.gd" id="4_o5ek5"]
-[ext_resource type="Script" path="res://Scripts/Lives.gd" id="5_flcf6"]
 [ext_resource type="Script" path="res://Scripts/GameOver.gd" id="6_7a57c"]
+[ext_resource type="Script" path="res://Scripts/Lives.gd" id="8_hiddy"]
 [ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="8_vgamm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tktm7"]
@@ -39,20 +39,20 @@ script = ExtResource("4_o5ek5")
 
 [node name="Walls" type="Node2D" parent="."]
 
-[node name="LeftWall" type="Area2D" parent="Walls"]
+[node name="LeftWall" type="StaticBody2D" parent="Walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
 position = Vector2(-4, 136)
 shape = SubResource("RectangleShape2D_tktm7")
 
-[node name="RightWall" type="Area2D" parent="Walls"]
+[node name="RightWall" type="StaticBody2D" parent="Walls"]
 position = Vector2(488, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
 position = Vector2(-4, 136)
 shape = SubResource("RectangleShape2D_tktm7")
 
-[node name="TopWall" type="Area2D" parent="Walls"]
+[node name="TopWall" type="StaticBody2D" parent="Walls"]
 position = Vector2(464, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/TopWall"]
@@ -62,12 +62,8 @@ shape = SubResource("RectangleShape2D_tghrq")
 [node name="Ground" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(240, 280)
+position = Vector2(240, 284)
 shape = SubResource("RectangleShape2D_3odru")
-
-[node name="Lives" type="Node2D" parent="."]
-position = Vector2(8, 8)
-script = ExtResource("5_flcf6")
 
 [node name="GameOver" type="Node2D" parent="."]
 visible = false
@@ -123,13 +119,15 @@ theme = SubResource("Theme_iymnw")
 theme_override_font_sizes/font_size = 8
 text = "Start Next Level"
 
-[connection signal="body_entered" from="Walls/LeftWall" to="Ball" method="_on_side_wall_collision"]
-[connection signal="body_entered" from="Walls/RightWall" to="Ball" method="_on_side_wall_collision"]
-[connection signal="body_entered" from="Walls/TopWall" to="Ball" method="_on_top_wall_collision"]
+[node name="Lives" type="Node2D" parent="."]
+position = Vector2(8, 8)
+script = ExtResource("8_hiddy")
+
 [connection signal="body_entered" from="Ground" to="Ball" method="_on_ground_body_entered"]
 [connection signal="body_entered" from="Ground" to="Lives" method="_on_ground_body_entered"]
+[connection signal="pressed" from="GameOver/Panel/Button" to="." method="_on_restart_game"]
+[connection signal="pressed" from="GameOver/Panel/Button" to="GameOver" method="_on_restart_game_pressed"]
+[connection signal="pressed" from="NextLevel/Panel/Button" to="NextLevel" method="_on_next_level_button_pressed"]
 [connection signal="game_over" from="Lives" to="Paddle" method="_on_lives_game_over"]
 [connection signal="game_over" from="Lives" to="Ball" method="_on_game_over"]
 [connection signal="game_over" from="Lives" to="GameOver" method="_on_game_over"]
-[connection signal="pressed" from="GameOver/Panel/Button" to="." method="_on_restart_game"]
-[connection signal="pressed" from="GameOver/Panel/Button" to="GameOver" method="_on_restart_game_pressed"]
