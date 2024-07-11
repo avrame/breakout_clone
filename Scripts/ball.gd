@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
-const INITIAL_BALL_SPEED = -150
-const MIN_BALL_SPEED = 50
-const MAX_BALL_SPEED = 300
+const MIN_BALL_SPEED = 150
+const MAX_BALL_SPEED = 400
 
 @onready var sprite = $Sprite2D
 var brick_width
@@ -34,7 +33,7 @@ func _physics_process(delta):
 		
 func _start_moving():
 	var angle = randf_range(.75 * PI, .25 * PI)
-	velocity = Vector2.RIGHT.rotated(angle) * INITIAL_BALL_SPEED
+	velocity = Vector2.RIGHT.rotated(angle) * -MIN_BALL_SPEED
 	game_in_play = true
 
 

@@ -25,6 +25,6 @@ func _on_ball_collision():
 
 
 func _on_clink_sound_finished():
-	if hitpoints == 0:
+	if hitpoints <= 0:
 		queue_free()
 		bricks_container._on_brick_died()
