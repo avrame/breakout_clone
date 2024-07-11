@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://drd3bjutei1yv"]
+[gd_scene load_steps=16 format=3 uid="uid://drd3bjutei1yv"]
 
 [ext_resource type="Script" path="res://Scripts/Background.gd" id="1_a54s0"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_wybct"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/GameOver.gd" id="6_7a57c"]
 [ext_resource type="Script" path="res://Scripts/Lives.gd" id="8_hiddy"]
 [ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="8_vgamm"]
+[ext_resource type="Theme" uid="uid://ykkifxpapmsu" path="res://Scenes/breakout.theme" id="10_vg6wo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tktm7"]
 size = Vector2(8, 272)
@@ -126,6 +127,14 @@ text = "Start Next Level"
 [node name="Lives" type="Node2D" parent="."]
 position = Vector2(8, 8)
 script = ExtResource("8_hiddy")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 384.0
+offset_top = 7.0
+offset_right = 474.0
+offset_bottom = 19.0
+theme = ExtResource("10_vg6wo")
+text = "Score: 0"
 
 [connection signal="level_completed" from="Bricks" to="Paddle" method="_on_level_completed"]
 [connection signal="level_completed" from="Bricks" to="Ball" method="_on_level_completed"]

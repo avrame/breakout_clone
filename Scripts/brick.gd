@@ -2,6 +2,7 @@ extends Sprite2D
 
 @onready var audio = $AudioStreamPlayer2D
 @onready var bricks_container = get_parent()
+@onready var global = get_node("/root/Global")
 @export var max_hitpoints = 1
 var hitpoints
 
@@ -28,3 +29,4 @@ func _on_clink_sound_finished():
 	if hitpoints <= 0:
 		queue_free()
 		bricks_container._on_brick_died()
+		global._increase_score(max_hitpoints * 5)
