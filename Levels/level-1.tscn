@@ -8,3 +8,81 @@
 [node name="Brick" parent="Bricks" index="0" instance=ExtResource("2_jhgln")]
 material = null
 position = Vector2(240, 89)
+
+[node name="Brick2" parent="Bricks" index="1" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(224, 73)
+max_hitpoints = 2
+
+[node name="Brick3" parent="Bricks" index="2" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(256, 73)
+max_hitpoints = 2
+
+[node name="Brick4" parent="Bricks" index="3" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(272, 89)
+
+[node name="Brick5" parent="Bricks" index="4" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(208, 89)
+
+[node name="Brick17" parent="Bricks" index="5" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(240, 25)
+
+[node name="Brick18" parent="Bricks" index="6" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(272, 25)
+
+[node name="Brick19" parent="Bricks" index="7" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(208, 25)
+
+[node name="Brick6" parent="Bricks" index="8" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(192, 73)
+
+[node name="Brick7" parent="Bricks" index="9" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(208, 57)
+max_hitpoints = 2
+
+[node name="Brick8" parent="Bricks" index="10" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(240, 57)
+
+[node name="Brick9" parent="Bricks" index="11" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(272, 57)
+max_hitpoints = 2
+
+[node name="Brick10" parent="Bricks" index="12" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(288, 73)
+
+[node name="Brick13" parent="Bricks" index="13" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(224, 41)
+max_hitpoints = 2
+
+[node name="Brick14" parent="Bricks" index="14" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(256, 41)
+max_hitpoints = 2
+
+[node name="Brick15" parent="Bricks" index="15" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(192, 41)
+
+[node name="Brick16" parent="Bricks" index="16" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(288, 41)
+
+[node name="Brick11" parent="Bricks" index="17" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(304, 57)
+
+[node name="Brick12" parent="Bricks" index="18" instance=ExtResource("2_jhgln")]
+material = null
+position = Vector2(176, 57)

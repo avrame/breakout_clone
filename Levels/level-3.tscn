@@ -45,262 +45,164 @@ position = Vector2(272, 105)
 material = null
 position = Vector2(208, 105)
 
-[node name="Brick31" parent="Bricks" index="10" instance=ExtResource("3_r125e")]
+[node name="Brick60" parent="Bricks" index="10" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(126, 73)
+rotation = -0.174533
+
+[node name="Brick61" parent="Bricks" index="11" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(93, 82)
+rotation = -0.349066
+
+[node name="Brick62" parent="Bricks" index="12" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(62, 96)
+rotation = -0.523599
+
+[node name="Brick63" parent="Bricks" index="13" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(119, 55)
+rotation = -0.174533
+max_hitpoints = 2
+
+[node name="Brick64" parent="Bricks" index="14" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(86, 64)
+rotation = -0.349066
+max_hitpoints = 2
+
+[node name="Brick65" parent="Bricks" index="15" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(55, 78)
+rotation = -0.523599
+max_hitpoints = 2
+
+[node name="Brick66" parent="Bricks" index="16" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(111, 37)
+rotation = -0.174533
+max_hitpoints = 3
+
+[node name="Brick67" parent="Bricks" index="17" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(78, 46)
+rotation = -0.349066
+max_hitpoints = 3
+
+[node name="Brick68" parent="Bricks" index="18" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(47, 60)
+rotation = -0.523599
+max_hitpoints = 3
+
+[node name="Brick31" parent="Bricks" index="19" instance=ExtResource("3_r125e")]
 material = null
 position = Vector2(224, 57)
 max_hitpoints = 3
 
-[node name="Brick32" parent="Bricks" index="11" instance=ExtResource("3_r125e")]
+[node name="Brick32" parent="Bricks" index="20" instance=ExtResource("3_r125e")]
 material = null
 position = Vector2(256, 57)
 max_hitpoints = 3
 
-[node name="Brick33" parent="Bricks" index="12" instance=ExtResource("3_r125e")]
+[node name="Brick33" parent="Bricks" index="21" instance=ExtResource("3_r125e")]
 material = null
 position = Vector2(288, 57)
 max_hitpoints = 3
 
-[node name="Brick49" parent="Bricks" index="13" instance=ExtResource("3_r125e")]
+[node name="Brick46" parent="Bricks" index="22" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(355, 73)
+rotation = 0.174533
+
+[node name="Brick47" parent="Bricks" index="23" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(388, 82)
+rotation = 0.349066
+
+[node name="Brick53" parent="Bricks" index="24" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(419, 97)
+rotation = 0.523599
+
+[node name="Brick54" parent="Bricks" index="25" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(363, 56)
+rotation = 0.174533
+max_hitpoints = 2
+
+[node name="Brick55" parent="Bricks" index="26" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(396, 65)
+rotation = 0.349066
+max_hitpoints = 2
+
+[node name="Brick56" parent="Bricks" index="27" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(427, 80)
+rotation = 0.523599
+max_hitpoints = 2
+
+[node name="Brick57" parent="Bricks" index="28" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(370, 39)
+rotation = 0.174533
+max_hitpoints = 3
+
+[node name="Brick58" parent="Bricks" index="29" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(403, 48)
+rotation = 0.349066
+max_hitpoints = 3
+
+[node name="Brick59" parent="Bricks" index="30" instance=ExtResource("3_r125e")]
+material = null
+position = Vector2(434, 63)
+rotation = 0.523599
+max_hitpoints = 3
+
+[node name="Brick49" parent="Bricks" index="31" instance=ExtResource("3_r125e")]
 material = null
 position = Vector2(192, 57)
 max_hitpoints = 3
 
-[node name="Brick34" parent="Bricks" index="14" instance=ExtResource("3_r125e")]
+[node name="Brick34" parent="Bricks" index="32" instance=ExtResource("3_r125e")]
 material = null
 position = Vector2(224, 73)
 max_hitpoints = 3
 
-[node name="Brick35" parent="Bricks" index="15" instance=ExtResource("3_r125e")]
+[node name="Brick35" parent="Bricks" index="33" instance=ExtResource("3_r125e")]
 material = null
 position = Vector2(256, 73)
 max_hitpoints = 3
 
-[node name="Brick36" parent="Bricks" index="16" instance=ExtResource("3_r125e")]
+[node name="Brick36" parent="Bricks" index="34" instance=ExtResource("3_r125e")]
 material = null
 position = Vector2(288, 73)
 max_hitpoints = 3
 
-[node name="Brick50" parent="Bricks" index="17" instance=ExtResource("3_r125e")]
+[node name="Brick50" parent="Bricks" index="35" instance=ExtResource("3_r125e")]
 material = null
 position = Vector2(192, 73)
 max_hitpoints = 3
 
-[node name="Brick37" parent="Bricks" index="18" instance=ExtResource("3_r125e")]
+[node name="Brick37" parent="Bricks" index="36" instance=ExtResource("3_r125e")]
 material = null
 position = Vector2(224, 89)
 max_hitpoints = 2
 
-[node name="Brick38" parent="Bricks" index="19" instance=ExtResource("3_r125e")]
+[node name="Brick38" parent="Bricks" index="37" instance=ExtResource("3_r125e")]
 material = null
 position = Vector2(256, 89)
 max_hitpoints = 2
 
-[node name="Brick40" parent="Bricks" index="20" instance=ExtResource("3_r125e")]
+[node name="Brick40" parent="Bricks" index="38" instance=ExtResource("3_r125e")]
 material = null
 position = Vector2(288, 89)
 max_hitpoints = 2
 
-[node name="Brick51" parent="Bricks" index="21" instance=ExtResource("3_r125e")]
+[node name="Brick51" parent="Bricks" index="39" instance=ExtResource("3_r125e")]
 material = null
 position = Vector2(192, 89)
-max_hitpoints = 2
-
-[node name="Brick46" parent="Bricks" index="22" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(96, 41)
-
-[node name="Brick47" parent="Bricks" index="23" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(128, 41)
-
-[node name="Brick53" parent="Bricks" index="24" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(80, 25)
-
-[node name="Brick54" parent="Bricks" index="25" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(112, 25)
-
-[node name="Brick55" parent="Bricks" index="26" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(80, 121)
-
-[node name="Brick56" parent="Bricks" index="27" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(112, 121)
-
-[node name="Brick57" parent="Bricks" index="28" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(64, 41)
-
-[node name="Brick58" parent="Bricks" index="29" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(96, 105)
-
-[node name="Brick59" parent="Bricks" index="30" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(128, 105)
-
-[node name="Brick60" parent="Bricks" index="31" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(64, 105)
-
-[node name="Brick61" parent="Bricks" index="32" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(80, 57)
-max_hitpoints = 3
-
-[node name="Brick62" parent="Bricks" index="33" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(112, 57)
-max_hitpoints = 3
-
-[node name="Brick63" parent="Bricks" index="34" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(144, 57)
-max_hitpoints = 3
-
-[node name="Brick64" parent="Bricks" index="35" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(48, 57)
-max_hitpoints = 3
-
-[node name="Brick65" parent="Bricks" index="36" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(80, 73)
-max_hitpoints = 3
-
-[node name="Brick66" parent="Bricks" index="37" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(112, 73)
-max_hitpoints = 3
-
-[node name="Brick67" parent="Bricks" index="38" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(144, 73)
-max_hitpoints = 3
-
-[node name="Brick68" parent="Bricks" index="39" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(48, 73)
-max_hitpoints = 3
-
-[node name="Brick69" parent="Bricks" index="40" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(80, 89)
-max_hitpoints = 2
-
-[node name="Brick70" parent="Bricks" index="41" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(112, 89)
-max_hitpoints = 2
-
-[node name="Brick71" parent="Bricks" index="42" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(144, 89)
-max_hitpoints = 2
-
-[node name="Brick72" parent="Bricks" index="43" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(48, 89)
-max_hitpoints = 2
-
-[node name="Brick73" parent="Bricks" index="44" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(384, 41)
-
-[node name="Brick74" parent="Bricks" index="45" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(416, 41)
-
-[node name="Brick75" parent="Bricks" index="46" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(368, 25)
-
-[node name="Brick76" parent="Bricks" index="47" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(400, 25)
-
-[node name="Brick77" parent="Bricks" index="48" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(368, 121)
-
-[node name="Brick78" parent="Bricks" index="49" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(400, 121)
-
-[node name="Brick79" parent="Bricks" index="50" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(352, 41)
-
-[node name="Brick80" parent="Bricks" index="51" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(384, 105)
-
-[node name="Brick81" parent="Bricks" index="52" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(416, 105)
-
-[node name="Brick82" parent="Bricks" index="53" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(352, 105)
-
-[node name="Brick83" parent="Bricks" index="54" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(368, 57)
-max_hitpoints = 3
-
-[node name="Brick84" parent="Bricks" index="55" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(400, 57)
-max_hitpoints = 3
-
-[node name="Brick85" parent="Bricks" index="56" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(432, 57)
-max_hitpoints = 3
-
-[node name="Brick86" parent="Bricks" index="57" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(336, 57)
-max_hitpoints = 3
-
-[node name="Brick87" parent="Bricks" index="58" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(368, 73)
-max_hitpoints = 3
-
-[node name="Brick88" parent="Bricks" index="59" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(400, 73)
-max_hitpoints = 3
-
-[node name="Brick89" parent="Bricks" index="60" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(432, 73)
-max_hitpoints = 3
-
-[node name="Brick90" parent="Bricks" index="61" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(336, 73)
-max_hitpoints = 3
-
-[node name="Brick91" parent="Bricks" index="62" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(368, 89)
-max_hitpoints = 2
-
-[node name="Brick92" parent="Bricks" index="63" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(400, 89)
-max_hitpoints = 2
-
-[node name="Brick93" parent="Bricks" index="64" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(432, 89)
-max_hitpoints = 2
-
-[node name="Brick94" parent="Bricks" index="65" instance=ExtResource("3_r125e")]
-material = null
-position = Vector2(336, 89)
 max_hitpoints = 2
