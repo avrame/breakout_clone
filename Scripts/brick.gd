@@ -23,10 +23,12 @@ func _on_ball_collision():
 	hitpoints -= 1
 	if hitpoints > 0:
 		_set_material()
+	else:
+		$StaticBody.queue_free()
+		bricks_container._on_brick_died()
+		global._increase_score(max_hitpoints * 5)
 
 
 func _on_clink_sound_finished():
 	if hitpoints <= 0:
 		queue_free()
-		bricks_container._on_brick_died()
-		global._increase_score(max_hitpoints * 5)
