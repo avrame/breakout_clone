@@ -1,18 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbrciwpjmmbs1"]
+[gd_scene load_steps=3 format=3 uid="uid://bbrciwpjmmbs1"]
 
 [ext_resource type="PackedScene" uid="uid://drd3bjutei1yv" path="res://Scenes/main.tscn" id="1_xdnbv"]
-[ext_resource type="Script" path="res://Scripts/Bricks.gd" id="2_0105n"]
 [ext_resource type="PackedScene" uid="uid://bfo62qwi83h7v" path="res://Scenes/brick.tscn" id="2_jhgln"]
 
 [node name="Main" instance=ExtResource("1_xdnbv")]
 
-[node name="Bricks" type="Node2D" parent="." index="1"]
-script = ExtResource("2_0105n")
-
 [node name="Brick" parent="Bricks" index="0" instance=ExtResource("2_jhgln")]
 material = null
 position = Vector2(240, 89)
-
-[connection signal="level_completed" from="Bricks" to="Paddle" method="_on_level_completed"]
-[connection signal="level_completed" from="Bricks" to="Ball" method="_on_level_completed"]
-[connection signal="level_completed" from="Bricks" to="NextLevel" method="_on_level_completed"]

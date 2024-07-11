@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://drd3bjutei1yv"]
+[gd_scene load_steps=15 format=3 uid="uid://drd3bjutei1yv"]
 
 [ext_resource type="Script" path="res://Scripts/Background.gd" id="1_a54s0"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_wybct"]
 [ext_resource type="PackedScene" uid="uid://ybj5a3hpqqql" path="res://Scenes/paddle.tscn" id="2_hsvsr"]
 [ext_resource type="PackedScene" uid="uid://b4vamd2ir5pd0" path="res://Scenes/ball.tscn" id="3_gus57"]
 [ext_resource type="Script" path="res://Scripts/ball.gd" id="4_o5ek5"]
+[ext_resource type="Script" path="res://Scripts/Bricks.gd" id="4_vrve4"]
 [ext_resource type="Script" path="res://Scripts/GameOver.gd" id="6_7a57c"]
 [ext_resource type="Script" path="res://Scripts/Lives.gd" id="8_hiddy"]
 [ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="8_vgamm"]
@@ -31,6 +32,9 @@ script = ExtResource("1_a54s0")
 
 [node name="Paddle" parent="." instance=ExtResource("2_hsvsr")]
 position = Vector2(240, 248)
+
+[node name="Bricks" type="Node2D" parent="."]
+script = ExtResource("4_vrve4")
 
 [node name="Ball" parent="." instance=ExtResource("3_gus57")]
 position = Vector2(240, 208)
@@ -123,6 +127,9 @@ text = "Start Next Level"
 position = Vector2(8, 8)
 script = ExtResource("8_hiddy")
 
+[connection signal="level_completed" from="Bricks" to="Paddle" method="_on_level_completed"]
+[connection signal="level_completed" from="Bricks" to="Ball" method="_on_level_completed"]
+[connection signal="level_completed" from="Bricks" to="NextLevel" method="_on_level_completed"]
 [connection signal="body_entered" from="Ground" to="Ball" method="_on_ground_body_entered"]
 [connection signal="body_entered" from="Ground" to="Lives" method="_on_ground_body_entered"]
 [connection signal="pressed" from="GameOver/Panel/Button" to="." method="_on_restart_game"]

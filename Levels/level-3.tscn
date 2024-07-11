@@ -1,13 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxn02xlx5s5eh"]
+[gd_scene load_steps=3 format=3 uid="uid://bxn02xlx5s5eh"]
 
 [ext_resource type="PackedScene" uid="uid://drd3bjutei1yv" path="res://Scenes/main.tscn" id="1_x51f1"]
-[ext_resource type="Script" path="res://Scripts/Bricks.gd" id="2_6j4l6"]
 [ext_resource type="PackedScene" uid="uid://bfo62qwi83h7v" path="res://Scenes/brick.tscn" id="3_r125e"]
 
 [node name="Main" instance=ExtResource("1_x51f1")]
-
-[node name="Bricks" type="Node2D" parent="." index="1"]
-script = ExtResource("2_6j4l6")
 
 [node name="Brick29" parent="Bricks" index="0" instance=ExtResource("3_r125e")]
 material = null
@@ -308,5 +304,3 @@ max_hitpoints = 2
 material = null
 position = Vector2(336, 89)
 max_hitpoints = 2
-
-[connection signal="level_completed" from="Bricks" to="NextLevel" method="_on_level_completed"]
