@@ -34,7 +34,6 @@ func _physics_process(delta):
 	if collision_info:
 		var collider = collision_info.get_collider()
 		collider.emit_signal("ball_hit")
-		print(collider.name)
 		velocity = velocity.bounce(collision_info.get_normal())
 		if collider.is_in_group("Walls"):
 			hit_wall_sound.play()
