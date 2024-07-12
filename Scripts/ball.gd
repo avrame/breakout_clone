@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 const MIN_BALL_SPEED = 150
-const MAX_BALL_SPEED = 400
+const MAX_BALL_SPEED = 350
+const VEL_INCREASE = 1.05
 
 @onready var sprite = $Sprite2D
 @onready var hit_wall_sound = $HitWallSound
@@ -25,10 +26,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("fire"):
 		if not game_in_play and not game_over:
 			_start_moving()
-			
-	velocity.limit_length(MAX_BALL_SPEED)
-	if velocity.length() < MIN_BALL_SPEED:
-		velocity = velocity.normalized() * MIN_BALL_SPEED
 		
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
@@ -39,6 +36,11 @@ func _physics_process(delta):
 			hit_wall_sound.play()
 		elif collider.is_in_group("Bricks"):
 			hit_brick_sound.play()
+			velocity = velocity * VEL_INCREASE
+			
+	velocity.limit_length(MAX_BALL_SPEED)
+	if velocity.length() < MIN_BALL_SPEED:
+		velocity = velocity.normalized() * MIN_BALL_SPEED
 		
 func _start_moving():
 	var angle = randf_range(.75 * PI, .25 * PI)
@@ -48,9 +50,10 @@ func _start_moving():
 
 func _bounce_off_paddle(paddle):
 	var relative_position = position.x - paddle.position.x
+	var original_vel = velocity.length()
 	velocity.y = -velocity.y
 	velocity.x = relative_position * 8
-	velocity.normalized()
+	velocity = velocity.normalized() * original_vel
 	hit_paddle_sound.play()
 
 
