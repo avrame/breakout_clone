@@ -44,20 +44,20 @@ script = ExtResource("4_o5ek5")
 
 [node name="Walls" type="Node2D" parent="."]
 
-[node name="LeftWall" type="StaticBody2D" parent="Walls"]
+[node name="LeftWall" type="StaticBody2D" parent="Walls" groups=["Walls"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
 position = Vector2(-4, 136)
 shape = SubResource("RectangleShape2D_tktm7")
 
-[node name="RightWall" type="StaticBody2D" parent="Walls"]
+[node name="RightWall" type="StaticBody2D" parent="Walls" groups=["Walls"]]
 position = Vector2(488, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
 position = Vector2(-4, 136)
 shape = SubResource("RectangleShape2D_tktm7")
 
-[node name="TopWall" type="StaticBody2D" parent="Walls"]
+[node name="TopWall" type="StaticBody2D" parent="Walls" groups=["Walls"]]
 position = Vector2(464, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/TopWall"]

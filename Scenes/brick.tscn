@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfo62qwi83h7v"]
+[gd_scene load_steps=7 format=3 uid="uid://bfo62qwi83h7v"]
 
 [ext_resource type="Shader" path="res://Shaders/block.gdshader" id="1_ynlwv"]
 [ext_resource type="Texture2D" uid="uid://140ccegvkr32" path="res://Images/brick.png" id="2_07a8o"]
 [ext_resource type="Script" path="res://Scripts/brick.gd" id="3_laelx"]
 [ext_resource type="Script" path="res://Scenes/BrickStatickBody.gd" id="4_4uq0a"]
-[ext_resource type="AudioStream" uid="uid://mlavcyytb4w0" path="res://Sounds/clink.wav" id="4_wlyv7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cihcj"]
 shader = ExtResource("1_ynlwv")
@@ -20,15 +19,10 @@ position = Vector2(320, 128)
 texture = ExtResource("2_07a8o")
 script = ExtResource("3_laelx")
 
-[node name="StaticBody" type="StaticBody2D" parent="."]
+[node name="StaticBody" type="StaticBody2D" parent="." groups=["Bricks"]]
 script = ExtResource("4_4uq0a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody"]
 shape = SubResource("RectangleShape2D_pmr7o")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_wlyv7")
-volume_db = 1.473
-
 [connection signal="ball_hit" from="StaticBody" to="." method="_on_ball_collision"]
-[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_clink_sound_finished"]

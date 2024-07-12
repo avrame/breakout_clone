@@ -4,6 +4,10 @@ const MIN_BALL_SPEED = 150
 const MAX_BALL_SPEED = 400
 
 @onready var sprite = $Sprite2D
+@onready var hit_wall_sound = $HitWallSound
+@onready var hit_brick_sound = $HitBrickSound
+@onready var hit_paddle_sound = $HitPaddleSound
+@onready var hit_ground_sound = $HitGroundSound
 var brick_width
 var brick_height
 var game_in_play = false
@@ -28,8 +32,14 @@ func _physics_process(delta):
 		
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
-		collision_info.get_collider().emit_signal("ball_hit")
+		var collider = collision_info.get_collider()
+		collider.emit_signal("ball_hit")
+		print(collider.name)
 		velocity = velocity.bounce(collision_info.get_normal())
+		if collider.is_in_group("Walls"):
+			hit_wall_sound.play()
+		elif collider.is_in_group("Bricks"):
+			hit_brick_sound.play()
 		
 func _start_moving():
 	var angle = randf_range(.75 * PI, .25 * PI)
@@ -42,9 +52,11 @@ func _bounce_off_paddle(paddle):
 	velocity.y = -velocity.y
 	velocity.x = relative_position * 8
 	velocity.normalized()
+	hit_paddle_sound.play()
 
 
 func _on_ground_body_entered(body):
+	hit_ground_sound.play()
 	velocity = Vector2.ZERO
 	position = initial_position
 	game_in_play = false

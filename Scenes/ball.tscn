@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4vamd2ir5pd0"]
+[gd_scene load_steps=5 format=3 uid="uid://b4vamd2ir5pd0"]
 
 [ext_resource type="Texture2D" uid="uid://by8yicfqtij74" path="res://Images/ball.png" id="1_5qs08"]
+[ext_resource type="AudioStream" uid="uid://mlavcyytb4w0" path="res://Sounds/clink.wav" id="2_vyfb5"]
+[ext_resource type="AudioStream" uid="uid://dxucjeswa061j" path="res://Sounds/crash.wav" id="3_akqy1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8lbp1"]
 radius = 6.0208
@@ -15,3 +17,17 @@ shape = SubResource("CircleShape2D_8lbp1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_5qs08")
+
+[node name="HitWallSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vyfb5")
+pitch_scale = 0.33
+
+[node name="HitPaddleSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vyfb5")
+pitch_scale = 0.5
+
+[node name="HitBrickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vyfb5")
+
+[node name="HitGroundSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_akqy1")
