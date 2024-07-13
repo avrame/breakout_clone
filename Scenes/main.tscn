@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://drd3bjutei1yv"]
+[gd_scene load_steps=17 format=3 uid="uid://drd3bjutei1yv"]
 
 [ext_resource type="Script" path="res://Scripts/Background.gd" id="1_a54s0"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_wybct"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/GameOver.gd" id="6_7a57c"]
 [ext_resource type="Script" path="res://Scripts/Lives.gd" id="8_hiddy"]
 [ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="8_vgamm"]
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="9_qjbn5"]
 [ext_resource type="Theme" uid="uid://ykkifxpapmsu" path="res://Scenes/breakout.theme" id="10_vg6wo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tktm7"]
@@ -124,6 +125,43 @@ theme = SubResource("Theme_iymnw")
 theme_override_font_sizes/font_size = 8
 text = "Start Next Level"
 
+[node name="PauseMenu" type="Node2D" parent="."]
+visible = false
+script = ExtResource("9_qjbn5")
+
+[node name="Panel" type="Panel" parent="PauseMenu"]
+offset_left = 172.0
+offset_top = 88.0
+offset_right = 308.0
+offset_bottom = 167.0
+
+[node name="Label" type="Label" parent="PauseMenu/Panel"]
+layout_mode = 0
+offset_right = 135.0
+offset_bottom = 23.0
+text = "Game Paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/Panel"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 28.0
+offset_right = 104.0
+offset_bottom = 48.0
+theme = SubResource("Theme_iymnw")
+theme_override_font_sizes/font_size = 8
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="PauseMenu/Panel"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 52.0
+offset_right = 104.0
+offset_bottom = 72.0
+theme = SubResource("Theme_iymnw")
+theme_override_font_sizes/font_size = 8
+text = "Quit"
+
 [node name="Lives" type="Node2D" parent="."]
 position = Vector2(8, 8)
 script = ExtResource("8_hiddy")
@@ -144,6 +182,8 @@ text = "Score: 0"
 [connection signal="pressed" from="GameOver/Panel/Button" to="." method="_on_restart_game"]
 [connection signal="pressed" from="GameOver/Panel/Button" to="GameOver" method="_on_restart_game_pressed"]
 [connection signal="pressed" from="NextLevel/Panel/Button" to="NextLevel" method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/QuitButton" to="PauseMenu" method="_on_quit_button_pressed"]
 [connection signal="game_over" from="Lives" to="Paddle" method="_on_lives_game_over"]
 [connection signal="game_over" from="Lives" to="Ball" method="_on_game_over"]
 [connection signal="game_over" from="Lives" to="GameOver" method="_on_game_over"]

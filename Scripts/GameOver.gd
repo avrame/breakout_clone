@@ -14,8 +14,10 @@ func _process(delta):
 
 func _on_game_over():
 	visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func _on_restart_game_pressed():
 	visible = false
 	restart_game.emit()
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

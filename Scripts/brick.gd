@@ -19,9 +19,9 @@ func _set_material():
 
 func _on_ball_collision():
 	hitpoints -= 1
+	global._increase_score(5)
 	if hitpoints > 0:
 		_set_material()
 	else:
 		bricks_container._on_brick_died()
-		global._increase_score(max_hitpoints * 5)
 		queue_free()
