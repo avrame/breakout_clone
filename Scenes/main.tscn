@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://drd3bjutei1yv"]
+[gd_scene load_steps=19 format=3 uid="uid://drd3bjutei1yv"]
 
 [ext_resource type="Script" path="res://Scripts/Background.gd" id="1_a54s0"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_wybct"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="8_vgamm"]
 [ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="9_qjbn5"]
 [ext_resource type="Theme" uid="uid://ykkifxpapmsu" path="res://Scenes/breakout.theme" id="10_vg6wo"]
+[ext_resource type="LabelSettings" uid="uid://bttrp3ggc2ldb" path="res://score_label_settings.tres" id="12_r1fr5"]
+[ext_resource type="Script" path="res://Scenes/HighScoreLabel.gd" id="13_xhcog"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tktm7"]
 size = Vector2(8, 272)
@@ -21,10 +23,10 @@ size = Vector2(477, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3odru"]
 size = Vector2(496, 20)
 
-[sub_resource type="SystemFont" id="SystemFont_etpwb"]
+[sub_resource type="LabelSettings" id="LabelSettings_8n4xv"]
 
-[sub_resource type="Theme" id="Theme_iymnw"]
-default_font = SubResource("SystemFont_etpwb")
+[sub_resource type="LabelSettings" id="LabelSettings_7r1na"]
+font_size = 14
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_wybct")
@@ -62,7 +64,7 @@ shape = SubResource("RectangleShape2D_tktm7")
 position = Vector2(464, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/TopWall"]
-position = Vector2(-222.5, -3)
+position = Vector2(-222.5, -5)
 shape = SubResource("RectangleShape2D_tghrq")
 
 [node name="Ground" type="Area2D" parent="."]
@@ -71,94 +73,155 @@ shape = SubResource("RectangleShape2D_tghrq")
 position = Vector2(240, 284)
 shape = SubResource("RectangleShape2D_3odru")
 
-[node name="GameOver" type="Node2D" parent="."]
+[node name="NextLevel" type="CenterContainer" parent="."]
 visible = false
-script = ExtResource("6_7a57c")
-
-[node name="Panel" type="Panel" parent="GameOver"]
-offset_left = 176.0
-offset_top = 88.0
-offset_right = 304.0
-offset_bottom = 144.0
-
-[node name="Label" type="Label" parent="GameOver/Panel"]
-layout_mode = 0
-offset_right = 128.0
-offset_bottom = 23.0
-text = "Game Over"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="GameOver/Panel"]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 28.0
-offset_right = 88.0
-offset_bottom = 48.0
-theme = SubResource("Theme_iymnw")
-theme_override_font_sizes/font_size = 8
-text = "Try Again"
-
-[node name="NextLevel" type="Node2D" parent="."]
-visible = false
+offset_right = 478.0
+offset_bottom = 272.0
 script = ExtResource("8_vgamm")
 
-[node name="Panel" type="Panel" parent="NextLevel"]
-offset_left = 172.0
-offset_top = 88.0
-offset_right = 308.0
-offset_bottom = 144.0
+[node name="Panel" type="PanelContainer" parent="NextLevel"]
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="NextLevel/Panel"]
-layout_mode = 0
-offset_right = 135.0
-offset_bottom = 23.0
+[node name="MarginContainer" type="MarginContainer" parent="NextLevel/Panel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NextLevel/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NextLevel/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
 text = "Level Complete!"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button" type="Button" parent="NextLevel/Panel"]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 28.0
-offset_right = 104.0
-offset_bottom = 48.0
-theme = SubResource("Theme_iymnw")
+[node name="Button" type="Button" parent="NextLevel/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 20)
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
 theme_override_font_sizes/font_size = 8
 text = "Start Next Level"
+metadata/_edit_use_anchors_ = true
 
-[node name="PauseMenu" type="Node2D" parent="."]
+[node name="PauseMenu" type="CenterContainer" parent="."]
 visible = false
+offset_right = 478.0
+offset_bottom = 272.0
+theme = ExtResource("10_vg6wo")
 script = ExtResource("9_qjbn5")
 
-[node name="Panel" type="Panel" parent="PauseMenu"]
-offset_left = 172.0
-offset_top = 88.0
-offset_right = 308.0
-offset_bottom = 167.0
+[node name="Panel" type="PanelContainer" parent="PauseMenu"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="PauseMenu/Panel"]
-layout_mode = 0
-offset_right = 135.0
-offset_bottom = 23.0
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/Panel"]
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
+
+[node name="Label" type="Label" parent="PauseMenu/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
 text = "Game Paused"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ResumeButton" type="Button" parent="PauseMenu/Panel"]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 28.0
-offset_right = 104.0
-offset_bottom = 48.0
-theme = SubResource("Theme_iymnw")
+[node name="ResumeButton" type="Button" parent="PauseMenu/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
 theme_override_font_sizes/font_size = 8
 text = "Resume"
 
-[node name="QuitButton" type="Button" parent="PauseMenu/Panel"]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 52.0
-offset_right = 104.0
-offset_bottom = 72.0
-theme = SubResource("Theme_iymnw")
+[node name="QuitButton" type="Button" parent="PauseMenu/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
+theme_override_font_sizes/font_size = 8
+text = "Quit"
+
+[node name="GameOver" type="CenterContainer" parent="."]
+visible = false
+offset_right = 478.0
+offset_bottom = 272.0
+script = ExtResource("6_7a57c")
+
+[node name="Panel" type="PanelContainer" parent="GameOver"]
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOver/Panel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOver/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
+text = "Game Over"
+label_settings = SubResource("LabelSettings_8n4xv")
+horizontal_alignment = 1
+
+[node name="TryAgain" type="Button" parent="GameOver/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
+theme_override_font_sizes/font_size = 8
+text = "Try Again"
+
+[node name="QuitButton" type="Button" parent="GameOver/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
+theme_override_font_sizes/font_size = 8
+text = "Quit"
+
+[node name="YouWon" type="CenterContainer" parent="."]
+visible = false
+offset_right = 478.0
+offset_bottom = 272.0
+theme = ExtResource("10_vg6wo")
+
+[node name="Panel" type="PanelContainer" parent="YouWon"]
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
+
+[node name="MarginContainer" type="MarginContainer" parent="YouWon/Panel"]
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="YouWon/Panel/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
+
+[node name="Label" type="Label" parent="YouWon/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
+text = "Congratulations,
+you won the game!"
+label_settings = SubResource("LabelSettings_7r1na")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TryAgain" type="Button" parent="YouWon/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 20)
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
+theme_override_font_sizes/font_size = 8
+text = "Play Again"
+
+[node name="QuitButton" type="Button" parent="YouWon/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 20)
+layout_mode = 2
+theme = ExtResource("10_vg6wo")
 theme_override_font_sizes/font_size = 8
 text = "Quit"
 
@@ -167,23 +230,38 @@ position = Vector2(8, 8)
 script = ExtResource("8_hiddy")
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = 384.0
-offset_top = 7.0
-offset_right = 474.0
-offset_bottom = 19.0
+offset_left = 417.0
+offset_top = 4.0
+offset_right = 478.0
+offset_bottom = 14.0
 theme = ExtResource("10_vg6wo")
 text = "Score: 0"
+label_settings = ExtResource("12_r1fr5")
+
+[node name="HighScoreLabel" type="Label" parent="."]
+offset_left = 325.0
+offset_top = 4.0
+offset_right = 413.0
+offset_bottom = 14.0
+theme = ExtResource("10_vg6wo")
+text = "High Score: 0"
+label_settings = ExtResource("12_r1fr5")
+script = ExtResource("13_xhcog")
 
 [connection signal="level_completed" from="Bricks" to="Paddle" method="_on_level_completed"]
 [connection signal="level_completed" from="Bricks" to="Ball" method="_on_level_completed"]
 [connection signal="level_completed" from="Bricks" to="NextLevel" method="_on_level_completed"]
 [connection signal="body_entered" from="Ground" to="Ball" method="_on_ground_body_entered"]
 [connection signal="body_entered" from="Ground" to="Lives" method="_on_ground_body_entered"]
-[connection signal="pressed" from="GameOver/Panel/Button" to="." method="_on_restart_game"]
-[connection signal="pressed" from="GameOver/Panel/Button" to="GameOver" method="_on_restart_game_pressed"]
-[connection signal="pressed" from="NextLevel/Panel/Button" to="NextLevel" method="_on_next_level_button_pressed"]
-[connection signal="pressed" from="PauseMenu/Panel/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
-[connection signal="pressed" from="PauseMenu/Panel/QuitButton" to="PauseMenu" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="NextLevel/Panel/MarginContainer/VBoxContainer/Button" to="NextLevel" method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/MarginContainer/VBoxContainer/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/MarginContainer/VBoxContainer/QuitButton" to="PauseMenu" method="_on_quit_button_pressed"]
+[connection signal="restart_game" from="GameOver" to="." method="_on_restart_game"]
+[connection signal="restart_game" from="GameOver" to="Lives" method="_set_starting_lives"]
+[connection signal="pressed" from="GameOver/Panel/MarginContainer/VBoxContainer/TryAgain" to="GameOver" method="_restart_game"]
+[connection signal="pressed" from="GameOver/Panel/MarginContainer/VBoxContainer/QuitButton" to="PauseMenu" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="YouWon/Panel/MarginContainer/VBoxContainer/TryAgain" to="YouWon" method="_restart_game"]
+[connection signal="pressed" from="YouWon/Panel/MarginContainer/VBoxContainer/QuitButton" to="PauseMenu" method="_on_quit_button_pressed"]
 [connection signal="game_over" from="Lives" to="Paddle" method="_on_lives_game_over"]
 [connection signal="game_over" from="Lives" to="Ball" method="_on_game_over"]
 [connection signal="game_over" from="Lives" to="GameOver" method="_on_game_over"]

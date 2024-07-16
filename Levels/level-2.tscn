@@ -154,3 +154,9 @@ position = Vector2(304, 105)
 material = null
 position = Vector2(144, 73)
 max_hitpoints = 2
+
+[node name="QuitButton" parent="GameOver/Panel" index="2"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 64.0
+offset_bottom = 20.0

@@ -40,6 +40,8 @@ func _physics_process(delta):
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		mouse_x_vel = Input.get_last_mouse_velocity().x
+	if event is InputEventJoypadMotion:
+		move_amount = Input.get_axis("slide-left", "slide-right")
 		
 func _unhandled_key_input(event):
 	if event.is_action_pressed("slide-left") or event.is_action_pressed("slide-right"):
